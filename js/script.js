@@ -34,6 +34,9 @@ function isCollide(snake) {
         return true;
     }
 }
+/**
+ * Executes the game engine logic.
+ */
 function gameEngine() {
     // Part 1: Updating the snake array
     if (isCollide(snakeArr)) {
@@ -100,11 +103,11 @@ function gameEngine() {
 // Main logic starts here
 
 let hiscore = localStorage.getItem("hiscore");
-if(hiscore === null){
+if (hiscore === null) {
     hiscoreval = 0;
     localStorage.setItem("hiscore", JSON.stringify(hiscoreval))
 }
-else{
+else {
     hiscoreval = JSON.parse(hiscore);
     hiscoreBox.innerHTML = "HiScore: " + hiscore;
 }
