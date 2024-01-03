@@ -1,3 +1,13 @@
+/**
+ * FILEPATH: /D:/Snake-game-project-miniproject/css/style.css
+ * 
+ * This CSS file contains the styling for a snake game project.
+ * It imports a Google Fonts stylesheet and sets some global styles.
+ * The body element is styled to have a background image and be centered on the page.
+ * The scoreBox and hiscoreBox elements are positioned and styled for displaying scores.
+ * The board element represents the game board and is styled with a gradient background and grid layout.
+ * The head, snake, and food elements are styled for the game components.
+ */
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
 * {
     padding: 0;
