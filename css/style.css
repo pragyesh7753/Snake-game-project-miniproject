@@ -7,8 +7,10 @@
  * The scoreBox and hiscoreBox elements are positioned and styled for displaying scores.
  * The board element represents the game board and is styled with a gradient background and grid layout.
  * The head, snake, and food elements are styled for the game components.
+ * Media query for resposnsiveness is also added.
  */
 @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -33,7 +35,7 @@
     font-family: 'New Tegomin', serif;
 }
 
-#hiscoreBox{
+#hiscoreBox {
     position: absolute;
     top: 59px;
     right: 140px;
@@ -61,7 +63,7 @@
 
 .snake {
     background-color: #800080;
-    border: .25vmin solid white;
+    border: .35vmin solid white;
     border-radius: 120px;
 }
 
@@ -69,5 +71,108 @@
     background: linear-gradient(#ff0000, #800080);
     border: .25vmin solid black;
     border-radius: 8px;
+}
 
+.controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+}
+
+
+button {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    border: none;
+    background: linear-gradient(#ff0000, #f1e205);
+    color: white;
+    border-radius: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.horizontal-controls {
+    display: flex;
+    justify-content: center;
+}
+
+button:active {
+    background-color: #555;
+}
+
+/* Add new styles for the speed control */
+#speedControl {
+    position: absolute;
+    top: 110px;
+    right: 20px;
+    margin-right: 100px;
+    font-size: 39px;
+    font-weight: bold;
+    font-family: 'New Tegomin', serif;
+}
+
+#speedSelect {
+    font-size: 20px;
+    border: none;
+    background: linear-gradient(#ca0202, #d4c602);
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+#speedSelect option {
+    background: #e97e05; /* Match the option background with dropdown */
+    color: white;
+}
+
+
+/* Media query for responsiveness */
+/* Show buttons only on screens smaller than 768px (tablets and mobiles) */
+@media (max-width: 768px) {
+    body {
+        overflow: hidden;
+    }
+
+    #scoreBox {
+        top: 5px;
+        right: 140px;
+        font-size: 20px;
+    }
+
+    #hiscoreBox {
+        top: 35px;
+        right: 120px;
+        font-size: 20px;
+    }
+
+    #speedControl {
+        top: 65px;
+        right: 10px;
+        font-size: 18px;
+    }
+
+    #speedSelect {
+        font-size: 18px;
+    }
+
+    .controls {
+        display: flex;
+        align-items: center;
+    }
+
+    #leftBtn {
+        margin-right: 5px;
+    }
+
+    #board {
+        transform: translate(0, -30%);
+    }
 }
