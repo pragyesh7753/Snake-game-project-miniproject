@@ -173,3 +173,5 @@ document.getElementById('speedSelect').addEventListener('change', (event) => {
     speed = parseInt(event.target.value);
     localStorage.setItem('speed', speed);
 });
+
+

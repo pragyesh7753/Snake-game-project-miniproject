@@ -18,6 +18,7 @@
 
 .body {
     background: url("../img/bg.jpg");
+    background-size: cover;
     min-height: 100vh;
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
@@ -129,7 +130,8 @@ button:active {
 }
 
 #speedSelect option {
-    background: #e97e05; /* Match the option background with dropdown */
+    background: #e97e05;
+    /* Match the option background with dropdown */
     color: white;
 }
 
