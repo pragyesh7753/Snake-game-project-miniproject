@@ -38,6 +38,7 @@ function isCollide(snake) {
 }
 
 function gameEngine() {
+    // Updating the snake array & Food
     if (isCollide(snakeArr)) {
         gameOverSound.play();
         musicSound.pause();
@@ -48,6 +49,7 @@ function gameEngine() {
         score = 0;
     }
 
+    // If you have eaten the food, increment the score and regenerate the food
     if (snakeArr[0].y === food.y && snakeArr[0].x === food.x) {
         foodSound.play();
         score += 1;
@@ -63,12 +65,15 @@ function gameEngine() {
         food = { x: 2 + Math.round(a + (b - a) * Math.random()), y: 2 + Math.round(a + (b - a) * Math.random()) };
     }
 
+    // Moving the snake
     for (let i = snakeArr.length - 2; i >= 0; i--) {
         snakeArr[i + 1] = { ...snakeArr[i] };
     }
     snakeArr[0].x += inputDir.x;
     snakeArr[0].y += inputDir.y;
 
+    // Display the snake and food
+    // Display the snake
     board.innerHTML = "";
     snakeArr.forEach((e, index) => {
         snakeElement = document.createElement('div');
@@ -77,10 +82,13 @@ function gameEngine() {
         snakeElement.classList.add('snake');
         if (index === 0) {
             snakeElement.classList.add('head');
+        } else {
+            snakeElement.classList.add("snake");
         }
         board.appendChild(snakeElement);
     });
 
+    // Display the food
     foodElement = document.createElement('div');
     foodElement.style.gridRowStart = food.y;
     foodElement.style.gridColumnStart = food.x;
@@ -126,29 +134,17 @@ window.addEventListener('keydown', e => {
 });
 
 
-document.getElementById('upBtn').addEventListener('click', () => {
-    inputDir.x = 0;
-    inputDir.y = -1;
+const handleDirectionChange = (x, y) => {
+    musicSound.play();
+    inputDir.x = x;
+    inputDir.y = y;
     moveSound.play();
-});
+};
 
-document.getElementById('downBtn').addEventListener('click', () => {
-    inputDir.x = 0;
-    inputDir.y = 1;
-    moveSound.play();
-});
-
-document.getElementById('leftBtn').addEventListener('click', () => {
-    inputDir.x = -1;
-    inputDir.y = 0;
-    moveSound.play();
-});
-
-document.getElementById('rightBtn').addEventListener('click', () => {
-    inputDir.x = 1;
-    inputDir.y = 0;
-    moveSound.play();
-});
+document.getElementById('upBtn').addEventListener('click', () => handleDirectionChange(0, -1));
+document.getElementById('downBtn').addEventListener('click', () => handleDirectionChange(0, 1));
+document.getElementById('leftBtn').addEventListener('click', () => handleDirectionChange(-1, 0));
+document.getElementById('rightBtn').addEventListener('click', () => handleDirectionChange(1, 0));
 
 document.getElementById('pauseBtn').addEventListener('click', () => {
     isPaused = !isPaused; // Toggle the global isPaused

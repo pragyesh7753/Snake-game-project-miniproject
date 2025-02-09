@@ -119,6 +119,7 @@ button:active {
 }
 
 #speedSelect {
+    font-family: 'New Tegomin', serif;
     font-size: 20px;
     border: none;
     background: linear-gradient(#ca0202, #d4c602);
